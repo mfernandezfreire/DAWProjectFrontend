@@ -5,7 +5,7 @@ import NavbarLinks from './components/NavBarLinks/NavbarLinks';
 const Navbar = () => {
   const loggedIn = false;
   return (
-    <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <div className="d-none d-sm-flex container-fluid justify-content-between">
         <Link
           className="navbar-brand"

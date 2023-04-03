@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+
 import './index.css';
 
 // Bootstrap CSS
@@ -9,6 +13,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 // Bootstrap Bundle JS
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+// import 'bootstrap/dist/js/bootstrap.esm';
+
 import { AppRouter } from './router/Approuter';
 
 const root = ReactDOM.createRoot(
@@ -16,6 +22,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <AppRouter />
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
   </React.StrictMode>,
 );
