@@ -14,6 +14,7 @@ export const TextAreaFormControl = (
     value,
     label,
     handleChange,
+    readOnly,
   }: TextAreaFormControlProps,
 ) => (
   <FormControlWrapper customStyle={customStyle}>
@@ -25,7 +26,10 @@ export const TextAreaFormControl = (
         name={name}
         value={value}
         onChange={handleChange}
+        required
+        disabled={readOnly}
       />
+      <div className="invalid-feedback">{value.trim() > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
     </div>
   </FormControlWrapper>
 );

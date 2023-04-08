@@ -1,13 +1,17 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { LogIn } from '../pages/LogIn';
+import { SignInPage } from '../pages/SignInPage';
+import { LogInPage } from '../pages/LogInPage';
+import { ModalComponent } from '../components/ModalComponent/ModalComponent';
+import { HomePage } from '../pages/HomePage';
 
 export const AuthRoutes = () => (
-  <div className="container mt-5 p-3">
+  <div className="container-fluid mt-5 pt-4 pb-5">
     <Routes>
-      <Route path="home" element={<h1>Ruta home</h1>} />
-      <Route path="login" element={<LogIn />} />
-      <Route path="signin" element={<h1>Ruta Sign In</h1>} />
+      <Route path="home" element={<HomePage />} />
+      <Route path="login" element={<LogInPage />} />
+      <Route path="signin" element={<SignInPage />} />
       <Route path="/*" element={<Navigate to="/explorar" />} />
     </Routes>
+    <ModalComponent />
   </div>
 );

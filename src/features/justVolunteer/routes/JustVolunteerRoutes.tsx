@@ -1,11 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { CreateActivitiePage } from '../pages/CreateActivitiePage';
+import { ExplorePage } from '../pages/ExplorePage';
+import { ManageActivitiePage } from '../pages/ManageActivitiePage';
 
 export const JustVolunteerRoutes = () => (
-  <div className="container">
+  <div className="container-fluid mt-5 pt-4 pb-5">
     <Routes>
-      <Route path="explorar" element={<h1>Ruta explorar</h1>} />
-      <Route path="gestionar" element={<h1>Ruta Gestionar</h1>} />
-      <Route path="crear" element={<h1>Ruta Crear</h1>} />
+      <Route path="explorar" element={<ExplorePage />} />
+      <Route path="gestionar/:id" element={<ManageActivitiePage />} />
+      <Route path="crear" element={<CreateActivitiePage />} />
       <Route path="/" element={<Navigate to="/explorar" />} />
     </Routes>
   </div>

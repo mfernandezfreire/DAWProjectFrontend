@@ -13,7 +13,7 @@ export const BACKEND_ROUTES = {
     CHECK_ACTIVITIES_DETAIL: '/user/checkactivitiesdetail',
     CREATE_ACTIVITIE: '/user/createactivities',
     UPDATE_ACTIVITIE: '/user/updateactivities',
-    DELETE_ACTIVITIE: '/user/deleteactivities',
+    DELETE_ACTIVITIE: '/user/deleteactivitie',
     ADD_VOLUNTEER_TO_ACTIVITIE: '/user/addvolunteertoactivitie',
     DELETE_VOLUNTEER_FROM_ACTIVITIE: '/user/deletevolunteerfromActivitie',
     GET_VOLUNTEERS_BY_ACTIVITIE: '/user/getvolunteersbyactivitie',

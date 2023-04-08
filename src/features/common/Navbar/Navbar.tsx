@@ -1,9 +1,15 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { ReactComponent as NavbarLogo } from '../../../assets/logoNavbar.svg';
+import { RootState } from '../../../store/store';
 import Avatar from './components/Avatar/Avatar';
 import NavbarLinks from './components/NavBarLinks/NavbarLinks';
 
+type UserType = 'ONG' | 'Volunteer';
+
 const Navbar = () => {
-  const loggedIn = false;
+  const { isLogged, userInfo } = useSelector((store: RootState) => store.authSlice);
+  const userType = userInfo?.userType as UserType;
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <div className="d-none d-sm-flex container-fluid justify-content-between">
@@ -11,14 +17,15 @@ const Navbar = () => {
           className="navbar-brand"
           to="/"
         >
-          JustVolunteer
+          {/* JustVolunteer */}
+          <NavbarLogo />
         </Link>
         <div className="navbar-collapse">
           <div className="navbar-nav">
-            <NavbarLinks isLogged={loggedIn} navLinkType="navItem" />
+            <NavbarLinks isLogged={isLogged} userType={userType} navLinkType="navItem" />
           </div>
         </div>
-        <Avatar isLogged={loggedIn} />
+        <Avatar isLogged={isLogged} />
       </div>
       <div className="d-flex d-sm-none container-fluid justify-content-between">
         <div className="dropdown">
@@ -27,7 +34,7 @@ const Navbar = () => {
               <span className="bi bi-list" />
             </button>
             <ul className="dropdown-menu">
-              <NavbarLinks isLogged={loggedIn} navLinkType="dropdownItem" />
+              <NavbarLinks isLogged={isLogged} userType={userType} navLinkType="dropdownItem" />
             </ul>
           </div>
         </div>
@@ -35,9 +42,9 @@ const Navbar = () => {
           className="navbar-brand"
           to="/"
         >
-          JustVolunteer
+          <NavbarLogo style={{ marginLeft: '1.75rem' }} />
         </Link>
-        <Avatar isLogged={loggedIn} />
+        <Avatar isLogged={isLogged} />
       </div>
     </nav>
   );

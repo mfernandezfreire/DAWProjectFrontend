@@ -1,15 +1,24 @@
 import { useState } from 'react';
-import { ONG } from '../store/slices';
 
-export const useForm = (initialForm: {} | ONG = {}) => {
+export const useForm = <T>(initialForm: T) => {
   const [formState, setFormState] = useState(initialForm);
+  const [formClassValidation, setFormClassValidation] = useState('pepe');
 
-  const onInputChange = ({ target }: any) => {
+  const handleStateChange = ({ target }: any) => {
     const { name, value } = target;
     setFormState({
       ...formState,
       [name]: value,
     });
+  };
+
+  const changeFormClassValidation = (isError: boolean) => {
+    if (isError) {
+      console.log('entra');
+      setFormClassValidation('was-validated');
+      return;
+    }
+    setFormClassValidation('');
   };
 
   const onResetForm = () => {
@@ -19,7 +28,9 @@ export const useForm = (initialForm: {} | ONG = {}) => {
   return {
     ...formState,
     formState,
-    onInputChange,
+    formClassValidation,
+    changeFormClassValidation,
+    handleStateChange,
     onResetForm,
   };
 };

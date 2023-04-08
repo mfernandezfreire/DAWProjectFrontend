@@ -4,6 +4,7 @@ type NavLinkType = 'navItem' | 'dropdownItem';
 
 interface NavbarLinksProps {
   isLogged: boolean;
+  userType: 'ONG' | 'Volunteer'
   navLinkType: NavLinkType;
 }
 
@@ -35,18 +36,29 @@ const NavbarLink = ({ navLinkType, to, name }: NavbarLinkProp) => {
     );
 };
 
-const NavbarLinks = ({ isLogged, navLinkType }: NavbarLinksProps) => (isLogged
-  ? (
+const getNavBarLinkByUserType = (
+  userType: 'ONG' | 'Volunteer',
+  navLinkType: NavLinkType,
+) => {
+  if (userType === 'ONG') {
+    return (
+      <>
+        <NavbarLink to="/explorar" name="Explorar" navLinkType={navLinkType} />
+        <NavbarLink to="/crear" name="Crear" navLinkType={navLinkType} />
+      </>
+    );
+  }
+  return (
+    <NavbarLink to="/explorar" name="Explorar" navLinkType={navLinkType} />
+  );
+};
+
+const NavbarLinks = ({ isLogged, userType, navLinkType }: NavbarLinksProps) => (isLogged
+  ? getNavBarLinkByUserType(userType, navLinkType)
+  : (
     <>
-      <NavbarLink to="/explorar" name="Explorar" navLinkType={navLinkType} />
-      <NavbarLink to="/gestionar" name="Gestionar" navLinkType={navLinkType} />
-      <NavbarLink to="/crear" name="Crear" navLinkType={navLinkType} />
-    </>
-  ) : (
-    <>
-      <NavbarLink to="/auth/home" name="Home" navLinkType={navLinkType} />
-      <NavbarLink to="/auth/login" name="Log In" navLinkType={navLinkType} />
-      <NavbarLink to="/auth/signin" name="Sign In" navLinkType={navLinkType} />
+      <NavbarLink to="/auth/login" name="Accede" navLinkType={navLinkType} />
+      <NavbarLink to="/auth/signin" name="Registrate" navLinkType={navLinkType} />
     </>
   ));
 

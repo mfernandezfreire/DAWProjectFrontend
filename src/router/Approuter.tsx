@@ -8,6 +8,7 @@ import Navbar from '../features/common/Navbar/Navbar';
 import { JustVolunteerRoutes } from '../features/justVolunteer/routes/JustVolunteerRoutes';
 import { ProtectedRoutes } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
+import { ModalComponent } from '../features/auth/components/ModalComponent/ModalComponent';
 
 export const AppRouter = () => (
   <BrowserRouter>
@@ -30,5 +31,6 @@ export const AppRouter = () => (
         )}
       />
     </Routes>
+    <ModalComponent />
   </BrowserRouter>
 );
