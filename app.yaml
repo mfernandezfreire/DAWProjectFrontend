@@ -1,0 +1,18 @@
+runtime: nodejs16
+
+service: frontend
+env_variables:
+  NODE_ENV: production
+  SERVER_PORT: 3000
+  REACT_APP_BACKEND_API: https://daw-project-381621.ew.r.appspot.com/
+  REACT_APP_BACKEND_X_FROM: dawProyectXFROM
+
+handlers:
+  # Serve all static files with url ending with a file extension
+  - url: /(.*\..+)$
+    static_files: build/\1
+    upload: build/(.*\..+)$
+  # Catch all handler to index.html
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
