@@ -19,7 +19,7 @@ export const TextAreaFormControl = (
 ) => (
   <FormControlWrapper customStyle={customStyle}>
     <div className="mb-3">
-      <label htmlFor="description">{label}</label>
+      <label htmlFor="description" className="form-label">{label}</label>
       <textarea
         className="form-control"
         id="description"

@@ -71,7 +71,7 @@ export const ONG_FORM_VALUES: ONGVolunteerFormValues = {
   ADDRESS: {
     type: 'text',
     name: 'calle',
-    label: 'Calle',
+    label: 'Dirección',
   },
   ZIP_CODE: {
     type: 'text',
@@ -192,7 +192,7 @@ export const ACTIVITIE_FORM_VALUES: ONGVolunteerFormValues = {
   CALLE: {
     type: 'text',
     name: 'calle',
-    label: 'Calle',
+    label: 'Dirección',
   },
   ZIP_CODE: {
     type: 'text',

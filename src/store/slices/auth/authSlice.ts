@@ -69,12 +69,12 @@ export const authSlice = createSlice({
     setIsLoading: (state) => {
       state.isLoading = true;
     },
-    setIsError: (state, action) => {
+    setIsErrorAuth: (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.errorInfo = action.payload;
     },
-    setErrorToNull: (state) => {
+    setAuthErrorToNull: (state) => {
       state.isError = false;
       state.errorInfo = { errorType: null, errorMessage: null };
     },
@@ -86,6 +86,6 @@ export const {
   setLogout,
   setIsLogged,
   setIsLoading,
-  setIsError,
-  setErrorToNull,
+  setIsErrorAuth,
+  setAuthErrorToNull,
 } = authSlice.actions;

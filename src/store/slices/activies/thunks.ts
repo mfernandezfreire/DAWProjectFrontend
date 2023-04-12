@@ -13,7 +13,7 @@ import {
   setActivitiesOwn,
   setActivitieDetail,
   setIsLoading,
-  setIsError,
+  setIsErrorActivitie,
   ActivitieSlice,
 } from './activitiesSlice';
 
@@ -29,10 +29,10 @@ export const getActivities = (): ThunkAction<void, ActivitieSlice, unknown, AnyA
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
   }
 };
 
@@ -50,10 +50,10 @@ export const getActivitiesByCif = (
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener la actividades.' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener la actividades.' }));
   }
 };
 
@@ -71,10 +71,10 @@ export const getActivitiesByNIF = (
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener lasactividades' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener lasactividades' }));
   }
 };
 
@@ -92,10 +92,10 @@ export const getActivitieDetail = (
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener la actividad.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener la actividad.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener la actividad.' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al obtener la actividad.' }));
   }
 };
 
@@ -110,13 +110,14 @@ export const createActivitie = (
     await dawProjectAPI
       .post(BACKEND_ROUTES.USER_ACTIONS.CREATE_ACTIVITIE, body, getHeaders());
     navigate('/explorar');
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se creo correctamente' }));
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al crear la actividad.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al crear la actividad.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al crear la actividad.' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al crear la actividad.' }));
   }
 };
 
@@ -131,13 +132,14 @@ export const updateActivitie = (
     await dawProjectAPI
       .put(BACKEND_ROUTES.USER_ACTIONS.UPDATE_ACTIVITIE, body, getHeaders());
     navigate('/explorar');
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se actualizo correctamente' }));
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al actualizar la actividad.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al actualizar la actividad.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al actualizar la actividad.' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al actualizar la actividad.' }));
   }
 };
 
@@ -152,13 +154,14 @@ export const deleteActivitie = (
     await dawProjectAPI
       .delete(BACKEND_ROUTES.USER_ACTIONS.DELETE_ACTIVITIE, { ...getHeaders(), params: { id } });
     navigate('/explorar');
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se borro correctamente' }));
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar la actividad.' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar la actividad.' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar la actividad.' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar la actividad.' }));
   }
 };
 
@@ -173,13 +176,14 @@ export const addVolunteerToActivitie = (
     await dawProjectAPI
       .post(BACKEND_ROUTES.USER_ACTIONS.ADD_VOLUNTEER_TO_ACTIVITIE, body, getHeaders());
     navigate('/explorar');
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'Has sido añadido a la actividad' }));
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario' }));
   }
 };
 
@@ -196,12 +200,13 @@ export const deleteVolunteerFromActivitie = (
         { ...getHeaders(), params: { ...params } },
       );
     navigate('/explorar');
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'Has sido borrado de la actividad' }));
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario' }));
+      dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario' }));
       return;
     }
-    dispatch(setIsError({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario' }));
+    dispatch(setIsErrorActivitie({ erroType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario' }));
   }
 };

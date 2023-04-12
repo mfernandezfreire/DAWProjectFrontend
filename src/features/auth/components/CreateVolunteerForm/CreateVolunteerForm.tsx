@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ONGVolunteerFormValuesKeys, VOLUNTEER_FORM_VALUES } from '../../../../config/formValues';
 import { useForm } from '../../../../hooks/useForm';
-import { Volunteer, setIsError, signUp } from '../../../../store/slices';
+import { Volunteer, setIsErrorAuth, signUp } from '../../../../store/slices';
 import { FormControlInputs } from '../../../common/FormControlnput/FormControlInputs';
 import { AuthSliceThunkDispatch } from '../../../../store/store';
 import { FORM_REGEX } from '../../../../config/regex';
@@ -45,7 +45,7 @@ export const CreateVolunteerForm = () => {
       || !(new RegExp(MOBILE_PHONE_NUMBER)).test(formState.telefono)
       || !(new RegExp(EMAIL)).test(formState.correo_electronico)
     ) {
-      dispatch(setIsError(
+      dispatch(setIsErrorAuth(
         {
           errorType: 'warning',
           errorMessage: 'Por favor, revisa los datos introducidos.',

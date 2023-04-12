@@ -10,7 +10,7 @@ import { BACKEND_ROUTES } from '../../../config/backEndRoutes';
 import {
   setIsLogged,
   setIsLoading,
-  setIsError,
+  setIsErrorAuth,
   AuthSlice,
 } from './authSlice';
 
@@ -27,15 +27,15 @@ export const signUp = (
   try {
     await dawProjectAPI.post(signInRoute, body, getHeaders());
     navigate('/auth/login');
-    dispatch(setIsError({ errorType: 'ok', errorMessage: 'El usuario se ha creado correctamente' }));
+    dispatch(setIsErrorAuth({ errorType: 'ok', errorMessage: 'El usuario se ha creado correctamente' }));
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     const axiosResponse = (error as AxiosError).response?.data;
     if (statusCode && statusCode === 500 && (axiosResponse as { code: string }).code === 'ER_DUP_ENTRY') {
-      dispatch(setIsError({ errorType: 'danger', errorMessage: 'Los datos son correctos pero pertenecen a un usuario ya existente.' }));
+      dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'Los datos son correctos pero pertenecen a un usuario ya existente.' }));
       return;
     }
-    dispatch(setIsError({ errorType: 'danger', errorMessage: 'Se produjo un erro al intentar crear usuario.' }));
+    dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'Se produjo un erro al intentar crear usuario.' }));
   }
 };
 
@@ -59,9 +59,9 @@ export const logIn = (
   } catch (error) {
     const statusCode = (error as AxiosError).response?.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsError({ errorType: 'danger', errorMessage: 'No existe un usuario con ese nombre o contraseña.' }));
+      dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'No existe un usuario con ese nombre o contraseña.' }));
       return;
     }
-    dispatch(setIsError({ errorType: 'danger', errorMessage: 'No existe un usuario con ese nombre o contraseña.' }));
+    dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'No existe un usuario con ese nombre o contraseña.' }));
   }
 };

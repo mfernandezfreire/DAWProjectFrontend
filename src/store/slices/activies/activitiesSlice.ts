@@ -62,10 +62,14 @@ export const activitiesSlice = createSlice({
     setIsLoading: (state) => {
       state.isLoading = true;
     },
-    setIsError: (state, action) => {
+    setIsErrorActivitie: (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.errorInfo = action.payload;
+    },
+    setActivitieErrorToNull: (state) => {
+      state.isError = false;
+      state.errorInfo = { errorType: null, errorMessage: null };
     },
   },
 });
@@ -76,5 +80,6 @@ export const {
   setActivitieDetail,
   setActivitiesOwn,
   setIsLoading,
-  setIsError,
+  setIsErrorActivitie,
+  setActivitieErrorToNull,
 } = activitiesSlice.actions;

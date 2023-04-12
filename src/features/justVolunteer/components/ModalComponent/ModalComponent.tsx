@@ -5,14 +5,14 @@ import {
   useDispatch,
 } from 'react-redux';
 import { RootState } from '../../../../store/store';
-import { setAuthErrorToNull } from '../../../../store/slices';
+import { setActivitieErrorToNull } from '../../../../store/slices/activies';
 
 export const ModalComponent = () => {
   const dispatch = useDispatch();
-  const { isError, errorInfo } = useSelector((store: RootState) => store.authSlice);
+  const { isError, errorInfo } = useSelector((store: RootState) => store.activitiesSlice);
 
   const handleClose = () => {
-    dispatch(setAuthErrorToNull());
+    dispatch(setActivitieErrorToNull());
   };
 
   const getIcon = () => {

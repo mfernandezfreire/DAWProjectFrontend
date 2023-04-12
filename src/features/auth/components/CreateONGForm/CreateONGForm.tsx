@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ONGVolunteerFormValuesKeys, ONG_FORM_VALUES } from '../../../../config/formValues';
 import { INTERVENTION_SECTOR, TYPES } from '../../../../config/ong';
 import { useForm } from '../../../../hooks/useForm';
-import { ONG, setIsError } from '../../../../store/slices';
+import { ONG, setIsErrorAuth } from '../../../../store/slices';
 import { FormControlInputs } from '../../../common/FormControlnput/FormControlInputs';
 import { signUp } from '../../../../store/slices/auth/thunks';
 import { AuthSliceThunkDispatch } from '../../../../store/store';
@@ -50,12 +50,12 @@ export const CreateONGForm = () => {
     if (
       emptyValues.length > 0
       || !(new RegExp(CIFREGEX)).test(formState.cif)
-      || !(new RegExp(ZIP_CODE)).test(formState.cif)
-      || !(new RegExp(MOBILE_PHONE_NUMBER)).test(formState.cif)
-      || !(new RegExp(CREATION_YEAR)).test(formState.cif)
+      || !(new RegExp(ZIP_CODE)).test(formState.cp)
+      || !(new RegExp(MOBILE_PHONE_NUMBER)).test(formState.telefono)
+      || !(new RegExp(CREATION_YEAR)).test(formState.ano_creacion)
       || !(new RegExp(EMAIL)).test(formState.correo_electronico)
     ) {
-      dispatch(setIsError(
+      dispatch(setIsErrorAuth(
         {
           errorType: 'warning',
           errorMessage: 'Por favor, revisa los datos introducidos.',

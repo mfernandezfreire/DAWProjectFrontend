@@ -1,3 +1,5 @@
+import './formControlWrapperStyle.css';
+
 interface FormControlWrapperProps {
   children: JSX.Element | JSX.Element[];
   customStyle?: string;
