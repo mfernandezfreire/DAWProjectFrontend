@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   BrowserRouter,
   Route,
@@ -9,28 +11,39 @@ import { JustVolunteerRoutes } from '../features/justVolunteer/routes/JustVolunt
 import { ProtectedRoutes } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
 import { ModalComponent } from '../features/auth/components/ModalComponent/ModalComponent';
+import { setIsLogged } from '../store/slices';
 
-export const AppRouter = () => (
-  <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route
-        path="auth/*"
-        element={(
-          <PublicRoute>
-            <AuthRoutes />
-          </PublicRoute>
-        )}
-      />
-      <Route
-        path="/*"
-        element={(
-          <ProtectedRoutes>
-            <JustVolunteerRoutes />
-          </ProtectedRoutes>
-        )}
-      />
-    </Routes>
-    <ModalComponent />
-  </BrowserRouter>
-);
+export const AppRouter = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+    const userInfoKeys = Object.keys(userInfo).length;
+    if (userInfoKeys === 10 || userInfoKeys === 13) {
+      dispatch(setIsLogged(userInfo));
+    }
+  }, []);
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route
+          path="auth/*"
+          element={(
+            <PublicRoute>
+              <AuthRoutes />
+            </PublicRoute>
+          )}
+        />
+        <Route
+          path="/*"
+          element={(
+            <ProtectedRoutes>
+              <JustVolunteerRoutes />
+            </ProtectedRoutes>
+          )}
+        />
+      </Routes>
+      <ModalComponent />
+    </BrowserRouter>
+  );
+};

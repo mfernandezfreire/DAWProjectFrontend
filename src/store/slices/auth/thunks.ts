@@ -53,6 +53,7 @@ export const logIn = (
     const [userInfo] = data;
     if (userInfo.length > 0) {
       const userType = loginType;
+      localStorage.setItem('userInfo', JSON.stringify({ ...userInfo[0], userType }));
       return dispatch(setIsLogged({ ...userInfo[0], userType }));
     }
     throw new Error('No user with these credentials');

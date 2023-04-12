@@ -74,7 +74,10 @@ export const ExplorePage = () => {
         <div className="row d-flex justify-content-center">
           {
             (getActivitiesToShow()).map((activitie: any) => (
-              <div className="col-lg-5 mb-4">
+              <div
+                key={activitie.nombre}
+                className="col-lg-5 mb-4"
+              >
                 <div className="card">
                   <div className="card-body">
                     <h5 className="card-title mb-3">{activitie.nombre}</h5>

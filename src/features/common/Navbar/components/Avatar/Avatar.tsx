@@ -14,7 +14,16 @@ const Avatar = ({ isLogged }: AvatarProps) => {
           <span className="bi bi-file-person-fill" />
         </button>
         <ul className="dropdown-menu dropdown-menu-end">
-          <button className="dropdown-item" type="button" onClick={() => dispatch(setLogout())}>Logout</button>
+          <button
+            className="dropdown-item"
+            type="button"
+            onClick={() => {
+              dispatch(setLogout());
+              localStorage.removeItem('userInfo');
+            }}
+          >
+            Logout
+          </button>
         </ul>
       </div>
     ) : <div style={{ minHeight: '42px', minWidth: '38px' }} />);

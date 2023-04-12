@@ -26,13 +26,13 @@ export const InputFormControl = (
       className="form-control"
       id={name}
       name={name}
-      value={value.toString()}
+      value={value && value.toString()}
       onChange={handleChange}
       autoComplete="off"
       pattern={pattern}
       required
       disabled={readOnly}
     />
-    <div className="invalid-feedback">{value.toString().trim().length > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
+    <div className="invalid-feedback">{value && value.toString().trim().length > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
   </FormControlWrapper>
 );

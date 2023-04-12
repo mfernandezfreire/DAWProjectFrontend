@@ -135,7 +135,10 @@ export const ManageActivitiePage = () => {
             <div className="row d-flex justify-content-center">
               {
                 (activitieDetail.volunteers).map((activitie: any) => (
-                  <div className="col-lg-5 mb-4">
+                  <div
+                    key={activitie.nombre}
+                    className="col-lg-5 mb-4"
+                  >
                     <div className="card">
                       <div className="card-body">
                         <h5 className="card-title mb-3">{`${activitie.nombre} ${activitie.apellidos}`}</h5>
