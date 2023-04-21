@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export const useForm = (initialForm) => {
   const [formState, setFormState] = useState(initialForm);
-  const [formClassValidation, setFormClassValidation] = useState('pepe');
+  const [formClassValidation, setFormClassValidation] = useState('');
 
   const handleStateChange = ({ target }) => {
     const { name, value } = target;

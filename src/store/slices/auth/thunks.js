@@ -50,7 +50,7 @@ export const logIn = (
       localStorage.setItem('userInfo', JSON.stringify({ ...userInfo[0], userType }));
       return dispatch(setIsLogged({ ...userInfo[0], userType }));
     }
-    throw new Error('No user with these credentials');
+    dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'No existe un usuario con ese nombre o contraseña.' }));
   } catch (error) {
     const statusCode = error.response.status;
     if (statusCode && statusCode !== 401) {

@@ -16,3 +16,7 @@ handlers:
   - url: /.*
     static_files: build/index.html
     upload: build/index.html
+  # Uploads app favicon
+  - url: /favicon.ico
+    static_files: public/favicon.ico
+    upload: public/favicon.ico

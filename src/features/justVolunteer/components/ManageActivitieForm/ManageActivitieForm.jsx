@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ACTIVITIE_FORM_VALUES } from '../../../../config/formValues';
@@ -20,7 +21,12 @@ export const ManageActivitieForm = (
     formClassValidation,
     changeFormClassValidation,
     handleStateChange,
+    onResetForm,
   } = useForm({ ...activitie });
+
+  useEffect(() => {
+    onResetForm();
+  }, [activitie]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

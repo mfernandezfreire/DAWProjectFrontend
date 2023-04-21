@@ -43,6 +43,7 @@ const NavbarLinks = ({ isLogged, userType, navLinkType }) => (isLogged
   ? getNavBarLinkByUserType(userType, navLinkType)
   : (
     <>
+      <NavbarLink to="/auth/home" name="Home" navLinkType={navLinkType} />
       <NavbarLink to="/auth/login" name="Accede" navLinkType={navLinkType} />
       <NavbarLink to="/auth/signin" name="Registrate" navLinkType={navLinkType} />
     </>

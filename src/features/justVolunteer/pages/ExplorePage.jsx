@@ -10,7 +10,6 @@ export const ExplorePage = () => {
   const [filterType, setFilter] = useState('All');
   const { userInfo } = useSelector((store) => store.authSlice);
   const { activities, activitiesOwn } = useSelector((store) => store.activitiesSlice);
-  useEffect(() => window.scrollTo(0, 0));
 
   const getActivitiesByUserType = () => {
     const userType = userInfo?.userType;

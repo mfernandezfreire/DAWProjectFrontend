@@ -11,7 +11,7 @@ export const HomePage = () => {
             <div className="container">
               <div className="row d-flex justify-content-center">
                 <h1 className="display-4 text-center">Bienvenidos a JustVolunteer</h1>
-                <p className="text-center">Nuestor objetivo es conectar a ONGs y voluntarios de toda España.</p>
+                <p className="text-center">Nuestro objetivo es conectar a ONGs y voluntarios de toda España.</p>
                 <LogoHome />
                 <h5 className="text-center mt-2">¿Qué deseas realizar?</h5>
               </div>
