@@ -22,7 +22,7 @@ export const TextAreaFormControl = (
         required
         disabled={readOnly}
       />
-      <div className="invalid-feedback">{value.trim() > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
+      <div className="invalid-feedback">{value && value.trim() > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
     </div>
   </FormControlWrapper>
 );

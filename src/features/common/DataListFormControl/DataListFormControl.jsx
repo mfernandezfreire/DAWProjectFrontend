@@ -35,6 +35,6 @@ export const DataListFormControl = (
           : []
       }
     </datalist>
-    <div className="invalid-feedback">{value.trim() > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
+    <div className="invalid-feedback">{value && value.trim() > 0 ? 'Campo incorrecto' : 'Campo requerido'}</div>
   </FormControlWrapper>
 );
