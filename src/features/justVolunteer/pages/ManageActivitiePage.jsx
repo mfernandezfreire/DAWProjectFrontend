@@ -30,19 +30,7 @@ export const ManageActivitiePage = () => {
   const getActivitieDetailByParamId = () => {
     const activitieOwned = activitiesOwn.filter((activitie) => activitie.id === id);
     if (
-      userInfo?.userType === 'ONG'
-      && Array.isArray(activitieOwned)
-      && activitieOwned.length > 0
-    ) {
-      dispatch(getActivitieDetail(
-        { ...activitieOwned[0] },
-        { id_actividad_de_voluntariado: id },
-      ));
-      setIsOwn(true);
-      return;
-    }
-    if (
-      userInfo?.userType === 'Volunteer'
+      (userInfo?.userType === 'ONG' || userInfo?.userType === 'Volunteer')
       && Array.isArray(activitieOwned)
       && activitieOwned.length > 0
     ) {
