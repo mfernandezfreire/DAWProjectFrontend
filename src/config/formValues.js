@@ -182,11 +182,11 @@ export const ACTIVITIE_FORM_VALUES = {
     label: 'Código Postal',
     pattern: ZIP_CODE,
   },
-  STUDY_FIELD: {
+  INTERVENTION_SECTOR: {
     type: 'select',
-    name: 'campo_estudio',
-    label: 'Campo de Estudio',
-    selectValues: STUDY_FIELD,
+    name: 'sector_intervencion',
+    label: 'Sector de Intervención',
+    selectValues: INTERVENTION_SECTOR,
   },
   LOCATION: {
     type: 'text',
