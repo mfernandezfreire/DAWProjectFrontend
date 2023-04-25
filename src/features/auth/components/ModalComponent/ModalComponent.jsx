@@ -34,7 +34,7 @@ export const ModalComponent = () => {
           <>
             <div className="modal-backdrop fade show" />
             <div className="modal" tabIndex={-1} role="dialog" style={{ display: 'block' }}>
-              <div className="modal-dialog modal-lg" role="document">
+              <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div className="modal-content">
                   <div className="modal-body">
                     <div className="text-center mb-4">

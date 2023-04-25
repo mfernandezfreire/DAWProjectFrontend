@@ -4,6 +4,7 @@ import { LogInPage } from '../pages/LogInPage';
 import { ModalComponent } from '../components/ModalComponent/ModalComponent';
 import { HomePage } from '../pages/HomePage';
 import { ScrollToTop } from '../../../hooks/useScrollToTop';
+import { LoaderComponent } from '../components/LoaderComponent/LoaderComponent';
 
 export const AuthRoutes = () => (
   <div className="container-fluid mt-5 pt-4 pb-5">
@@ -15,5 +16,6 @@ export const AuthRoutes = () => (
       <Route path="/*" element={<Navigate to="/explorar" />} />
     </Routes>
     <ModalComponent />
+    <LoaderComponent />
   </div>
 );

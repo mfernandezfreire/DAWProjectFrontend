@@ -4,6 +4,7 @@ import { ExplorePage } from '../pages/ExplorePage';
 import { ManageActivitiePage } from '../pages/ManageActivitiePage';
 import { ModalComponent } from '../components/ModalComponent/ModalComponent';
 import { ScrollToTop } from '../../../hooks/useScrollToTop';
+import { LoaderComponent } from '../components/LoaderComponent/LoaderComponent';
 
 export const JustVolunteerRoutes = () => (
   <div className="container-fluid mt-5 pt-4 pb-5">
@@ -15,5 +16,6 @@ export const JustVolunteerRoutes = () => (
       <Route path="/" element={<Navigate to="/explorar" />} />
     </Routes>
     <ModalComponent />
+    <LoaderComponent />
   </div>
 );
