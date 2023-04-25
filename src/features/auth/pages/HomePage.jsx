@@ -36,7 +36,7 @@ export const HomePage = () => {
             <div className="text-center mt-4">
               <h1 className="display-6 text-center mb-4">¿Qué deseas realizar?</h1>
               <button type="button" className="btn btn-outline-dark" style={{ marginRight: '1rem' }} onClick={() => navigate('/auth/login')}>Acceder</button>
-              <button type="button" className="btn btn-outline-dark" onClick={() => navigate('/auth/signin')}>Registrate</button>
+              <button type="button" className="btn btn-outline-dark" onClick={() => navigate('/auth/signin')}>Regístrate</button>
             </div>
           </div>
         </div>

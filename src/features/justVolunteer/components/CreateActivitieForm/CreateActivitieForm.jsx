@@ -21,15 +21,15 @@ export const CreateActivitieForm = () => {
   } = useForm({
     id: uuid(),
     cif_ong: cif,
-    nombre: 'Esto es una actividad',
+    nombre: '',
     sector: INTERVENTION_SECTOR[0],
-    numero_voluntarios: '10',
-    descripcion_actividad: 'Gente Vieja',
-    descripcion_horarios: 'Cuando me salga de los cojones',
-    calle: 'Madrid',
-    cp: '28017',
-    localidad: 'Madrid',
-    provincia: 'Madrid',
+    numero_voluntarios: '',
+    descripcion_actividad: '',
+    descripcion_horarios: '',
+    calle: '',
+    cp: '',
+    localidad: '',
+    provincia: '',
   });
 
   const handleSubmit = (event) => {

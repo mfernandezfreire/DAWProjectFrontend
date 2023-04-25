@@ -68,7 +68,7 @@ export const getActivitiesByNIF = (
       dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
       return;
     }
-    dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al obtener lasactividades' }));
+    dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al obtener las actividades.' }));
   }
 };
 
@@ -104,7 +104,7 @@ export const createActivitie = (
     await dawProjectAPI
       .post(BACKEND_ROUTES.USER_ACTIONS.CREATE_ACTIVITIE, body, getHeaders());
     navigate('/explorar');
-    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se creo correctamente' }));
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se creó correctamente.' }));
   } catch (error) {
     const statusCode = error.response?.status;
     if (statusCode && statusCode !== 401) {
@@ -126,7 +126,7 @@ export const updateActivitie = (
     await dawProjectAPI
       .put(BACKEND_ROUTES.USER_ACTIONS.UPDATE_ACTIVITIE, body, getHeaders());
     navigate('/explorar');
-    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se actualizo correctamente' }));
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se actualizó correctamente.' }));
   } catch (error) {
     const statusCode = error.response.status;
     if (statusCode && statusCode !== 401) {
@@ -152,7 +152,7 @@ export const deleteActivitie = (
         },
       );
     navigate('/explorar');
-    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se borro correctamente' }));
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'La actividad se borró correctamente' }));
   } catch (error) {
     const statusCode = error.response.status;
     if (statusCode && statusCode !== 401) {
@@ -174,14 +174,14 @@ export const addVolunteerToActivitie = (
     await dawProjectAPI
       .post(BACKEND_ROUTES.USER_ACTIONS.ADD_VOLUNTEER_TO_ACTIVITIE, body, getHeaders());
     navigate('/explorar');
-    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'Has sido añadido a la actividad' }));
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'Has sido añadido a la actividad.' }));
   } catch (error) {
     const statusCode = error.response.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario' }));
+      dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario.' }));
       return;
     }
-    dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario' }));
+    dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al vincular al usuario.' }));
   }
 };
 
@@ -198,13 +198,13 @@ export const deleteVolunteerFromActivitie = (
         { ...getHeaders(), params: { ...params } },
       );
     navigate('/explorar');
-    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'Has sido borrado de la actividad' }));
+    dispatch(setIsErrorActivitie({ errorType: 'ok', errorMessage: 'Has sido borrado de la actividad.' }));
   } catch (error) {
     const statusCode = error.response.status;
     if (statusCode && statusCode !== 401) {
-      dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario' }));
+      dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario.' }));
       return;
     }
-    dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario' }));
+    dispatch(setIsErrorActivitie({ errorType: 'warning', errorMessage: 'Se produjo un error al borrar Usuario.' }));
   }
 };

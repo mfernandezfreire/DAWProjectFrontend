@@ -21,12 +21,12 @@ export const signUp = (
   try {
     await dawProjectAPI.post(signInRoute, body, getHeaders());
     navigate('/auth/login');
-    dispatch(setIsErrorAuth({ errorType: 'ok', errorMessage: 'El usuario se ha creado correctamente' }));
+    dispatch(setIsErrorAuth({ errorType: 'ok', errorMessage: 'El usuario se ha creado correctamente.' }));
   } catch (error) {
     const statusCode = error.response.status;
     const axiosResponse = error.response.data;
     if (statusCode && statusCode === 500 && axiosResponse.code === 'ER_DUP_ENTRY') {
-      dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'Los datos son correctos pero pertenecen a un usuario ya existente.' }));
+      dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'Los datos son correctos, pero pertenecen a un usuario ya existente.' }));
       return;
     }
     dispatch(setIsErrorAuth({ errorType: 'danger', errorMessage: 'Se produjo un erro al intentar crear usuario.' }));
