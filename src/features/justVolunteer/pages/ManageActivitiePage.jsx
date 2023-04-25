@@ -46,6 +46,10 @@ export const ManageActivitiePage = () => {
       && Array.isArray(activitieOwned)
       && activitieOwned.length > 0
     ) {
+      dispatch(getActivitieDetail(
+        { ...activitieOwned[0] },
+        { id_actividad_de_voluntariado: id },
+      ));
       setIsOwn(true);
       return;
     }
