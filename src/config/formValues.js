@@ -21,17 +21,29 @@ export const ONG_FORM_VALUES = {
     label: 'CIF',
     pattern: CIFREGEX,
   },
+  PASSWORD: {
+    type: 'password',
+    name: 'password',
+    label: 'Contraseña',
+    pattern: PASSWORD,
+  },
   NAME: {
     type: 'text',
     name: 'nombre',
     label: 'Nombre',
     pattern: LETTERSREGEX,
   },
-  PASSWORD: {
-    type: 'password',
-    name: 'password',
-    label: 'Contraseña',
-    pattern: PASSWORD,
+  EMAIL: {
+    type: 'email',
+    name: 'correo_electronico',
+    label: 'Correo Electrónico',
+    pattern: EMAIL,
+  },
+  PHONE: {
+    type: 'text',
+    name: 'telefono',
+    label: 'Telefono Móvil',
+    pattern: MOBILE_PHONE_NUMBER,
   },
   TYPES: {
     type: 'select',
@@ -39,16 +51,22 @@ export const ONG_FORM_VALUES = {
     label: 'Tipo',
     selectValues: TYPES,
   },
-  DESCRIPTION: {
-    type: 'textarea',
-    name: 'descripcion',
-    label: 'Descripción',
-  },
   INTERVENTION_SECTOR: {
     type: 'select',
     name: 'sector_intervencion',
     label: 'Sector de Intervención',
     selectValues: INTERVENTION_SECTOR,
+  },
+  DESCRIPTION: {
+    type: 'textarea',
+    name: 'descripcion',
+    label: 'Descripción',
+  },
+  CREATION_YEAR: {
+    type: 'number',
+    name: 'ano_creacion',
+    label: 'Año de creación',
+    pattern: CREATION_YEAR,
   },
   ADDRESS: {
     type: 'text',
@@ -73,24 +91,6 @@ export const ONG_FORM_VALUES = {
     label: 'Provincia',
     datalistValues: PROVINCES,
   },
-  CREATION_YEAR: {
-    type: 'number',
-    name: 'ano_creacion',
-    label: 'Año de creación',
-    pattern: CREATION_YEAR,
-  },
-  PHONE: {
-    type: 'text',
-    name: 'telefono',
-    label: 'Telefono Móvil',
-    pattern: MOBILE_PHONE_NUMBER,
-  },
-  EMAIL: {
-    type: 'email',
-    name: 'correo_electronico',
-    label: 'Correo Electrónico',
-    pattern: EMAIL,
-  },
 };
 
 export const VOLUNTEER_FORM_VALUES = {
@@ -99,6 +99,11 @@ export const VOLUNTEER_FORM_VALUES = {
     name: 'nif',
     label: 'NIF',
     pattern: NIFREGEX,
+  },
+  PASSWORD: {
+    type: 'password',
+    name: 'password',
+    label: 'Contraseña',
   },
   NAME: {
     type: 'text',
@@ -109,27 +114,6 @@ export const VOLUNTEER_FORM_VALUES = {
     type: 'text',
     name: 'apellidos',
     label: 'Apellidos',
-  },
-  PASSWORD: {
-    type: 'password',
-    name: 'password',
-    label: 'Contraseña',
-  },
-  EDUCATION_BACKGROUND: {
-    type: 'text',
-    name: 'estudios',
-    label: 'Estudios',
-  },
-  STUDY_FIELD: {
-    type: 'select',
-    name: 'campo_estudio',
-    label: 'Campo de Estudio',
-    selectValues: STUDY_FIELD,
-  },
-  LANGUAGES: {
-    type: 'text',
-    name: 'idiomas',
-    label: 'Idiomas',
   },
   PHONE: {
     type: 'number',
@@ -143,10 +127,26 @@ export const VOLUNTEER_FORM_VALUES = {
     label: 'Correo Electrónico',
     pattern: EMAIL,
   },
+  EDUCATION_BACKGROUND: {
+    type: 'text',
+    name: 'estudios',
+    label: 'Estudios',
+  },
   MOTIVATION: {
     type: 'textarea',
     name: 'motivacion_voluntariado',
     label: 'Motivación Voluntariado',
+  },
+  STUDY_FIELD: {
+    type: 'select',
+    name: 'campo_estudio',
+    label: 'Campo de Estudio',
+    selectValues: STUDY_FIELD,
+  },
+  LANGUAGES: {
+    type: 'text',
+    name: 'idiomas',
+    label: 'Idiomas',
   },
 };
 
@@ -155,6 +155,12 @@ export const ACTIVITIE_FORM_VALUES = {
     type: 'text',
     name: 'nombre',
     label: 'Nombre',
+  },
+  INTERVENTION_SECTOR: {
+    type: 'select',
+    name: 'sector_intervencion',
+    label: 'Sector de Intervención',
+    selectValues: INTERVENTION_SECTOR,
   },
   VOLUNTEER_NUMBER: {
     type: 'text',
@@ -181,12 +187,6 @@ export const ACTIVITIE_FORM_VALUES = {
     name: 'cp',
     label: 'Código Postal',
     pattern: ZIP_CODE,
-  },
-  INTERVENTION_SECTOR: {
-    type: 'select',
-    name: 'sector_intervencion',
-    label: 'Sector de Intervención',
-    selectValues: INTERVENTION_SECTOR,
   },
   LOCATION: {
     type: 'text',
